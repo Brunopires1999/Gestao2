@@ -6,5 +6,6 @@ namespace Models
     {
         public string Descricao { get; set; }
         public List<GrupoUsuario> GrupoUsuarios { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -26,13 +26,11 @@ namespace WindowsFormsAppPrincipal
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             UsuarioBLL usuarioBLL = new UsuarioBLL();
-            usuarioBindingSource.DataSource = usuarioBLL.BuscarTodos();
-           
-        }
+            if(textBox1.Text == "")
+               usuarioBindingSource.DataSource = usuarioBLL.BuscarTodos();
+            else
+               usuarioBindingSource.DataSource = usuarioBLL.BuscarUsuarioPorNome(textBox1.Text);
+        }   
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
