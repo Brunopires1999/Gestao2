@@ -50,8 +50,8 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"SELECT Id, Nome, CPF, Email, Ativo
-                                    FROM Usuario WHERE NomeUsuario = @NomeUsuario";
+                cmd.CommandText = @"SELECT Id, Nome, CPF, Email, Ativo,NomeUsuario" +
+                                    "FROM Usuario WHERE NomeUsuario = @NomeUsuario";
 
                 cmd.Parameters.AddWithValue("@NomeUsuario", _nomeUsuario);
                 cmd.CommandType = System.Data.CommandType.Text;
@@ -96,7 +96,7 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"SELECT Id, Nome, CPF, Email, Ativo 
+                cmd.CommandText = @"SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo 
                                     FROM Usuario";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cn.Open();
@@ -128,12 +128,52 @@ namespace DAL
             }
         }
         public void Alterar(Usuario _usuario)
-        {
+        { 
+         SqlConnection cn = new SqlConnection();
+            try
+            {
+
+                cn.ConnectionString = Conexao.StringDeConexao;
+                SqlCommand cmd = new SqlCommand();
+        cmd.Connection = cn;
+                cmd.CommandText = "UPDATE Usuario SET nome = @nome,nome_Usuario = @nome_Usuario,data_Nascimento = @data_Nascimento," +
+                    "cpf_Usuario = @cpf_Usuario,senha = @senha,email = @email,ativo = @ativo WHERE id_Usuario = @id";
+
+
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@nome", _usuario.Nome);
+                cmd.Parameters.AddWithValue("@nome_Usuario", _usuario.NomeUsuario);
+                cmd.Parameters.AddWithValue("@cpf_Usuario", _usuario.CPF);
+                cmd.Parameters.AddWithValue("@senha", _usuario.Senha);
+                cmd.Parameters.AddWithValue("@email", _usuario.Email);
+                cmd.Parameters.AddWithValue("@ativo", _usuario.Ativo);
+                cmd.Parameters.AddWithValue("@id", _usuario.Id);
+
+                cn.Open();
+                cmd.ExecuteScalar();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar inserir um usuário no banco " + ex.Message);
+
+
+}
+            finally
+{
+    cn.Close();
+}
 
         }
+
+            
+        
         public void Excluir(int _id)
         {
 
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            usuarioDAL.Excluir(_id);
         }
     }
 }

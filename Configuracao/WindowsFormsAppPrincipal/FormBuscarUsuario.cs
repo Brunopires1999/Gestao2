@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,9 +23,16 @@ namespace WindowsFormsAppPrincipal
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonBuscar_Click(object sender, EventArgs e)
         {
+            UsuarioBLL usuarioBLL = new UsuarioBLL();
+            usuarioBindingSource.DataSource = usuarioBLL.BuscarTodos();
+           
+        }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

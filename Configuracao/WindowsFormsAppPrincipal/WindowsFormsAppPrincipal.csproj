@@ -47,11 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormBuscarGrupoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscarGrupoUsuario.Designer.cs">
+      <DependentUpon>FormBuscarGrupoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBuscarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormBuscarUsuario.Designer.cs">
       <DependentUpon>FormBuscarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPermissao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPermissao.Designer.cs">
+      <DependentUpon>FormPermissao.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -61,8 +73,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBuscarGrupoUsuario.resx">
+      <DependentUpon>FormBuscarGrupoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBuscarUsuario.resx">
       <DependentUpon>FormBuscarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPermissao.resx">
+      <DependentUpon>FormPermissao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
