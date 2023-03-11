@@ -93,6 +93,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\Models.GrupoUsuario.datasource" />
     <None Include="Properties\DataSources\Models.Permissao.datasource" />
@@ -119,6 +120,12 @@
       <Project>{f62dc657-c0cf-4523-9ccd-2460a20060f6}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HD-wallpaper-paradise-pd-police-paradise-dog-street.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kimetsu-no-yaiba-1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

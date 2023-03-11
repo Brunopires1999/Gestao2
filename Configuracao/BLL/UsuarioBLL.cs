@@ -54,6 +54,7 @@ namespace BLL
             return usuarioDAL.BuscarPorNomeAcesso(_nome_busca);
 
         }
+        
         public void Alterar(Usuario _alterarUsuario)
         {
             if (_alterarUsuario.NomeUsuario.Length <= 3 || _alterarUsuario.NomeUsuario.Length > 50) // length conta o numero de caracteres

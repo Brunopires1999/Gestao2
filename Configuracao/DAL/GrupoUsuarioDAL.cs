@@ -43,6 +43,43 @@ namespace DAL
 
 
         }
+        public GrupoUsuario BuscarPorID(int _idGrupoUsuario)
+        {
+            GrupoUsuario grupo = new GrupoUsuario();
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"Select TOP 100 IdGrupoUsuario, NomeGrupo from GrupoUsuario where IdGrupoUsuario = @IdGrupoUsuario";
+
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@IdGrupoUsuario", _idGrupoUsuario);
+
+                cn.Open();
+
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        grupo = new GrupoUsuario();
+                        //grupo.IdGrupoUsuario = Convert.ToInt32(rd["IdGrupoUsuario"]);
+                        grupo.NomeGrupo = rd["NomeGrupo"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao buscar grupo" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return grupo;
+        }
 
         public List<GrupoUsuario> BuscarTodosGrupos()
         {
@@ -82,6 +119,7 @@ namespace DAL
             }
 
         }
+       
         public void Alterar(GrupoUsuario _grupousuario)
         {
             SqlConnection cn = new SqlConnection();
@@ -115,9 +153,7 @@ namespace DAL
 
 
         }
-
-
-
+    
         public void Excluir(GrupoUsuario _idGrupoUsuario)
         {
             SqlConnection cn = new SqlConnection();

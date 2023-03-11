@@ -67,6 +67,8 @@ namespace DAL
                         usuario.CPF = rd["CPF"].ToString();
                         usuario.Email = rd["Email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["Ativo"]);
+                      
+                      
                     }
                     else
                     {
@@ -75,7 +77,7 @@ namespace DAL
                 }
                 return usuario;
             }
-            catch (Exception ex)
+           catch (Exception ex)
             {
                 throw new Exception("Ocorreu um erro ao tentar fazer busca de usuário por Nome de Usuário: " + ex.Message);
             }
@@ -109,6 +111,9 @@ namespace DAL
                         usuario.CPF= rd["cpf_Usuario"].ToString();
                         usuario.Email = rd["email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["ativo"]);
+                      
+                       
+                        
 
 
                     }
@@ -159,7 +164,9 @@ namespace DAL
                         usuario.CPF = rd["CPF"].ToString();
                         usuario.Email = rd["Email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["Ativo"]);
-
+                        GrupoUsuarioDAL grupoUsuarioDAL = new GrupoUsuarioDAL();
+                       /* usuario.GrupoUsuarios = grupoUsuarioDAL.BuscarPorID(usuario.Id); */ //TODO: Erro que não estou conseguindo resolver nesta linha.
+                        //TODO:Se for pegar meu código tenta resolver esse erro.
                         usuarios.Add(usuario);
                     }
                 }
@@ -174,6 +181,7 @@ namespace DAL
                 cn.Close();
             }
         }
+       
         public void Alterar(Usuario _usuario)
         { 
          SqlConnection cn = new SqlConnection();

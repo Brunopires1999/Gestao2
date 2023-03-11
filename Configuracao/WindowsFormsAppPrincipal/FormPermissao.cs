@@ -16,5 +16,10 @@ namespace WindowsFormsAppPrincipal
         {
             InitializeComponent();
         }
+
+        private void FormPermissao_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
