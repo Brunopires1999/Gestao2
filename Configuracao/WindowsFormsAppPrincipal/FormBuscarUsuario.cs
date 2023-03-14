@@ -20,17 +20,21 @@ namespace WindowsFormsAppPrincipal
 
         private void FormBuscarUsuario_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             UsuarioBLL usuarioBLL = new UsuarioBLL();
-            if(textBox1.Text == "")
-               usuarioBindingSource.DataSource = usuarioBLL.BuscarTodos();
-            else
-               usuarioBindingSource.DataSource = usuarioBLL.BuscarUsuarioPorNome(textBox1.Text);
-        }   
+            usuarioBindingSource.DataSource = usuarioBLL.BuscarTodos();
+        }
 
+        private void buttonAdicionarUsuario_Click(object sender, EventArgs e)
+        {
+            using(CadastroUsuario frm = new CadastroUsuario())
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

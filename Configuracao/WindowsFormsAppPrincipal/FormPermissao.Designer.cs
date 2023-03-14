@@ -49,6 +49,7 @@
             this.grupoUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grupoUsuariosDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingNavigator)).BeginInit();
             this.permissaoBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.permissaoBindingSource)).BeginInit();
@@ -240,11 +241,21 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.Width = 125;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(303, 81);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FormPermissao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1031, 599);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.grupoUsuariosDataGridView);
             this.Controls.Add(this.permissaoDataGridView);
             this.Controls.Add(this.permissaoBindingNavigator);
@@ -284,5 +295,6 @@
         private System.Windows.Forms.BindingSource grupoUsuariosBindingSource;
         private System.Windows.Forms.DataGridView grupoUsuariosDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Button button1;
     }
 }

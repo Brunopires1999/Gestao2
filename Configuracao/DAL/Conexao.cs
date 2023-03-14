@@ -2,8 +2,8 @@
 {
     public static class Conexao
     {
-        public static string StringDeConexao 
-        { 
+        public static string StringDeConexao
+        {
             get
             {
                 return @"User ID=SA;Initial Catalog=Gestao2;Data Source=.\SQLEXPRESS2019;Password=Senailab02";

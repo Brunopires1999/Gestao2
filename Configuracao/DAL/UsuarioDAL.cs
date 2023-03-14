@@ -144,8 +144,8 @@ namespace DAL
             SqlConnection cn = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
 
-            try
-            {
+            
+            
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
                 cmd.CommandText = @"SELECT Id, Nome, NomeUsuario, CPF, Email, Ativo 
@@ -165,19 +165,13 @@ namespace DAL
                         usuario.Email = rd["Email"].ToString();
                         usuario.Ativo = Convert.ToBoolean(rd["Ativo"]);
                         GrupoUsuarioDAL grupoUsuarioDAL = new GrupoUsuarioDAL();
-                       /* usuario.GrupoUsuarios = grupoUsuarioDAL.BuscarPorID(usuario.Id); */ //TODO: Erro que não estou conseguindo resolver nesta linha.
-                        //TODO:Se for pegar meu código tenta resolver esse erro.
+                        usuario.GrupoUsuarios = grupoUsuarioDAL.BuscarPorID(usuario.Id); 
+                        
                         usuarios.Add(usuario);
                     }
                 }
                 return usuarios;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Ocorreu um erro ao tentar buscar todos os usuários: " + ex.Message);
-            }
-            finally
-            {
+            { 
                 cn.Close();
             }
         }

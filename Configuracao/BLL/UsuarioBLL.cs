@@ -7,9 +7,9 @@ namespace BLL
 {
     public class UsuarioBLL
     {
-        public void Inserir(Usuario _usuario)
+        public void Inserir(Usuario _usuario, string _confirmacaoDeSenha)
         {
-            ValidarDados(_usuario);
+            ValidarDados(_usuario, _confirmacaoDeSenha); //TODO: corrigir erro e fazer validação com if add modificacao formbuscarusuario
 
             Usuario usuario = new Usuario();
             usuario = BuscarPorNomeUsuario(_usuario.NomeUsuario);
