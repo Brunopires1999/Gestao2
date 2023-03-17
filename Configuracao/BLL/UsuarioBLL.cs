@@ -83,7 +83,7 @@ namespace BLL
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.Alterar(_alterarUsuario);
         }
-        private static void ValidarDados(Usuario _usuario)
+        private static void ValidarDados(Usuario _usuario, string _confirmacaoDeSenha)
         {
             if (_usuario.NomeUsuario.Length <= 3 || _usuario.NomeUsuario.Length >= 50)
                 throw new Exception("O nome de usuário deve ter mais de três caracteres.");
@@ -101,6 +101,13 @@ namespace BLL
         {
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.Excluir(_id);
+        }
+        public void AdicionarGrupo(int _idUsuario, int _idGrupoUsuario)
+        {
+            if (new UsuarioDAL().ExisteRelacionamento(_idUsuario, _idGrupoUsuario))
+            {
+                return;
+            }
         }
     }
 }

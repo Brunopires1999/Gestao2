@@ -65,6 +65,12 @@
     <Compile Include="CadastroUsuario.Designer.cs">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormConsultarGrupoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultarGrupoUsuario.Designer.cs">
+      <DependentUpon>FormConsultarGrupoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPermissao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroUsuario.resx">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultarGrupoUsuario.resx">
+      <DependentUpon>FormConsultarGrupoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPermissao.resx">
       <DependentUpon>FormPermissao.cs</DependentUpon>

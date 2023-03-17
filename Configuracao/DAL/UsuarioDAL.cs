@@ -224,5 +224,10 @@ namespace DAL
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             usuarioDAL.Excluir(_id);
         }
+
+        public bool ExisteRelacionamento()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

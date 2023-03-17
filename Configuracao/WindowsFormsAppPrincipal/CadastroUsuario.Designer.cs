@@ -102,7 +102,7 @@
             // buttonSalvar
             // 
             this.buttonSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSalvar.Location = new System.Drawing.Point(579, 469);
+            this.buttonSalvar.Location = new System.Drawing.Point(579, 284);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(93, 35);
             this.buttonSalvar.TabIndex = 0;
@@ -113,7 +113,7 @@
             // buttonCancelar
             // 
             this.buttonCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancelar.Location = new System.Drawing.Point(729, 469);
+            this.buttonCancelar.Location = new System.Drawing.Point(729, 284);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(92, 35);
             this.buttonCancelar.TabIndex = 1;
@@ -207,7 +207,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(838, 516);
+            this.ClientSize = new System.Drawing.Size(838, 331);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkAtivo);
             this.Controls.Add(this.Confirmacaodesenha);

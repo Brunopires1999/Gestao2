@@ -43,9 +43,10 @@ namespace DAL
 
 
         }
-        public GrupoUsuario BuscarPorID(int _idGrupoUsuario)
+        public List<GrupoUsuario> BuscarPorID(int _idGrupoUsuario)
         {
             GrupoUsuario grupo = new GrupoUsuario();
+            List<GrupoUsuario> grupoUsuarios = new List<GrupoUsuario>();
             SqlConnection cn = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
 
@@ -53,7 +54,7 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = @"Select TOP 100 IdGrupoUsuario, NomeGrupo from GrupoUsuario where IdGrupoUsuario = @IdGrupoUsuario";
+                cmd.CommandText = @"Select TOP 100 Id, GrupoUsuario from GrupoUsuario where Id = @Id";
 
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@IdGrupoUsuario", _idGrupoUsuario);
@@ -66,7 +67,8 @@ namespace DAL
                     {
                         grupo = new GrupoUsuario();
                         //grupo.IdGrupoUsuario = Convert.ToInt32(rd["IdGrupoUsuario"]);
-                        grupo.NomeGrupo = rd["NomeGrupo"].ToString();
+                        grupo.NomeGrupo = rd["GrupoUsuario"].ToString();
+                        grupoUsuarios.Add(grupo);
                     }
                 }
             }
@@ -78,7 +80,7 @@ namespace DAL
             {
                 cn.Close();
             }
-            return grupo;
+            return grupoUsuarios;
         }
 
         public List<GrupoUsuario> BuscarTodosGrupos()
@@ -91,7 +93,7 @@ namespace DAL
             {
                 cn.ConnectionString = Conexao.StringDeConexao;
                 cmd.Connection = cn;
-                cmd.CommandText = "SELECT id_GrupoUsuario, NomeGrupo FROM GrupoUsuario";
+                cmd.CommandText = "SELECT Id,GrupoUsuario FROM GrupoUsuario";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
@@ -100,7 +102,7 @@ namespace DAL
                     {
                         grupousuario = new GrupoUsuario();
                         grupousuario.Id = Convert.ToInt32(rd["id_GrupoUsuario"]);
-                        grupousuario.NomeGrupo = rd["NomeGrupo"].ToString();
+                        grupousuario.NomeGrupo = rd["GrupoUsuario"].ToString();
 
 
                         grupo_usuarios.Add(grupousuario);
@@ -119,7 +121,7 @@ namespace DAL
             }
 
         }
-       
+
         public void Alterar(GrupoUsuario _grupousuario)
         {
             SqlConnection cn = new SqlConnection();
@@ -129,10 +131,10 @@ namespace DAL
                 cn.ConnectionString = Conexao.StringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "UPDATE GrupoUsuario SET NomeGrupo = @nomegrupo WHERE id_GrupoUsuario = @id";
+                cmd.CommandText = "UPDATE GrupoUsuario SET GrupoUsuario = @GrupoUsuario WHERE Id = @id";
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@nomegrupo", _grupousuario.NomeGrupo);
-                cmd.Parameters.AddWithValue("@id", _grupousuario.Id);
+                cmd.Parameters.AddWithValue("@GrupoUsuario", _grupousuario.NomeGrupo);
+                cmd.Parameters.AddWithValue("@Id", _grupousuario.Id);
 
 
                 cn.Open();
@@ -153,7 +155,7 @@ namespace DAL
 
 
         }
-    
+
         public void Excluir(GrupoUsuario _idGrupoUsuario)
         {
             SqlConnection cn = new SqlConnection();
@@ -165,7 +167,7 @@ namespace DAL
                 cmd.Connection = cn;
                 cmd.CommandText = "DELETE FROM GrupoUsuario WHERE id_GrupoUsuario= @id";
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@id", _idGrupoUsuario.Id);
+                cmd.Parameters.AddWithValue("@Id", _idGrupoUsuario.Id);
 
 
                 cn.Open();
