@@ -149,5 +149,44 @@ namespace DAL
 
         }
 
+        public List<Permissao> BuscarPorIDDescricao(int _IdDescricao)
+        {
+            List<Permissao> permissoes = new List<Permissao>();
+            Permissao permissao = new Permissao();
+            SqlConnection cn = new SqlConnection();
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cn.ConnectionString = Conexao.StringDeConexao;
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT Permissao.IdDescricao, Permissao.Descricao from Permissao inner join PermissaoGrupoUsuario on Permissao.IdDescricao = PermissaoGrupoUsuario.Cod_GrupoUsuario where IdDescricao = @Cod_Descricao";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Cod_Descricao", _IdDescricao);
+                cn.Open();
+
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        permissao = new Permissao();
+                        permissao.Id = Convert.ToInt32(rd["IdDescricao"]);
+                        permissao.Descricao = rd["Descricao"].ToString();
+
+                        permissoes.Add(permissao);
+                    }
+                }
+                return permissoes;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar buscar todos as permissões: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace WindowsFormsAppPrincipal
              try
             {
                 GrupoUsuarioBLL grupousuarioBLL = new GrupoUsuarioBLL();
-                grupoUsuarioBindingSource.DataSource = grupousuarioBLL.Buscar(textBoxBuscar.Text);
+               // grupoUsuarioBindingSource.DataSource = grupousuarioBLL.Buscar(textBoxBuscar.Text);
             }
             catch (Exception ex)
             {
